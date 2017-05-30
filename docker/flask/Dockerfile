@@ -13,7 +13,7 @@ RUN apk add --no-cache \
 	libxslt-dev \
 	linux-headers
 
-RUN git clone https://github.com/geopython/pywps4-impact.git
+RUN git clone https://github.com/andrejsim/pywps4-impact.git
  
 WORKDIR /pywps-demo
 RUN pip3 install -r requirements.txt
