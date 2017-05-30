@@ -51,8 +51,7 @@ processes = [
     Buffer(),
     Area(),
     Box(),
-    TestJson(),
-    Binary()
+    TestJson() #, Binary()
 ]
 
 # For the process list on the home page
