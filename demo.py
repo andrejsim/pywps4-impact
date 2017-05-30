@@ -36,7 +36,9 @@ from processes.buffer import Buffer
 from processes.area import Area
 from processes.bboxinout import Box
 from processes.jsonprocess import TestJson
-from impactwps.binaryoperatorfornumbers import Process as Binary
+
+#pywps3 needs porting...
+#from impactwps.binaryoperatorfornumbers import Process as Binary
 
 app = flask.Flask(__name__)
 

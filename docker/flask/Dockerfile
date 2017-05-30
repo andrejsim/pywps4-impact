@@ -15,7 +15,8 @@ RUN apk add --no-cache \
 
 RUN git clone https://github.com/andrejsim/pywps4-impact.git
  
-WORKDIR /pywps-demo
+WORKDIR /pywps4-impact
+
 RUN pip3 install -r requirements.txt
  
 RUN git clone https://github.com/KNMI/impactwps.git
