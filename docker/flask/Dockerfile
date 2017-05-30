@@ -15,7 +15,8 @@ RUN apk add --no-cache \
 
 RUN git clone https://github.com/andrejsim/pywps4-impact.git
 # using local code...
-#ADD /usr/people/mihajlov/docker/pywps4-impact/ /pywps4-impact/
+#RUN mkdir /pywps4-impact/
+#COPY ../../* /pywps4-impact/
 
 WORKDIR /pywps4-impact
 
