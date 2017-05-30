@@ -14,17 +14,22 @@ RUN apk add --no-cache \
 	linux-headers
 
 RUN git clone https://github.com/andrejsim/pywps4-impact.git
- 
+# using local code...
+#ADD /usr/people/mihajlov/docker/pywps4-impact/ /pywps4-impact/
+
 WORKDIR /pywps4-impact
 
 RUN pip3 install -r requirements.txt
  
+#porting required to pywps3
 RUN git clone https://github.com/KNMI/impactwps.git
 
 EXPOSE 5000 
 ENTRYPOINT ["/usr/bin/python3", "demo.py","-a"]
 
-#docker build -t pywps-demo . 
-#docker run -p 5000:5000 pywps-demo
+#docker build -t pywps4-impact:local ./docker/flask/ 
+#docker run -p 5000:5000 pywps4-impact
 #http://localhost:5000/wps?request=GetCapabilities&service=WPS
 #http://localhost:5000/wps?request=DescribeProcess&service=WPS&identifier=all&version=1.0.0
+
+#  docker rmi $(docker images | grep "^<none>" | awk "{print $3}") 
