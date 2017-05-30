@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Jorge S. Mendes de Jesus <jorge.dejesus@geocat.net>
+MAINTAINER Andrej Mihajlovski <esgf@knmi.nl>
 
 RUN apk add --no-cache \
 	git \
@@ -13,11 +13,13 @@ RUN apk add --no-cache \
 	libxslt-dev \
 	linux-headers
 
-RUN git clone https://github.com/geopython/pywps-demo.git
+RUN git clone https://github.com/geopython/pywps4-impact.git
  
 WORKDIR /pywps-demo
 RUN pip3 install -r requirements.txt
  
+RUN git clone https://github.com/KNMI/impactwps.git
+
 EXPOSE 5000 
 ENTRYPOINT ["/usr/bin/python3", "demo.py","-a"]
 
