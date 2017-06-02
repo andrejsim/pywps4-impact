@@ -8,7 +8,7 @@ RUN apk add --no-cache \
 	openssh \
 	musl-dev  \
 	python3 \
-        python3-dev \
+    python3-dev \
 	libxml2-dev  \
 	libxslt-dev \
 	linux-headers
@@ -21,12 +21,17 @@ RUN git clone https://github.com/andrejsim/pywps4-impact.git
 WORKDIR /pywps4-impact
 
 RUN pip3 install -r requirements.txt
+
+RUN pip3 install gunicorn
  
 #porting required to pywps3
-RUN git clone https://github.com/KNMI/impactwps.git
+#RUN git clone https://github.com/KNMI/impactwps.git
 
 EXPOSE 5000 
-ENTRYPOINT ["/usr/bin/python3", "demo.py","-a"]
+EXPOSE 8082
+
+#ENTRYPOINT ["/usr/bin/python3", "demo.py","-a"]
+ENTRYPOINT["gunicorn -w 4 "demo:app"]
 
 #docker build -t pywps4-impact:local ./docker/flask/ 
 #docker run -p 5000:5000 pywps4-impact
